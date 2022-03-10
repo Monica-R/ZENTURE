@@ -1,0 +1,516 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root{
+    --fondo: #233D4D;
+    --color_1: #A1C181;
+    --color_2: #619B8A;
+    --color_3: #FE7F2D;
+    --color_4: #FCCA46;
+    --color_5: white;
+    --anchura_texto_1: 2vw;
+    --anchura_texto_2: 1.6vw;
+    --anchura_titulo_1: 2.6vw;
+}
+
+@font-face {
+    font-family: 'B612';
+    src: local('B612 Regular'), local('B612-Regular'),
+        url("fonts/B612/B612-Regular.woff2") format("woff2"),
+        url("fonts/B612/B612-Regular.woff") format("woff"),
+        url("fonts/B612/B612-Regular.ttf") format("truetype"),
+        url("fonts/B612/B612-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src: local('Alegreya Variable'), local('Alegreya-VariableFont_wght'), 
+        url("fonts/Alegreya/Alegreya-VariableFont_wght.ttf") format("truetype");
+        font-weight: 600;
+        font-style: normal;
+}
+
+@font-face {
+    font-family: "foundation-icons";
+    src: url("./fonts/foundation-icons/foundation-icons.eot");
+    src: url("./fonts/foundation-icons/foundation-icons.eot?#iefix") format("embedded-opentype"),
+         url("./fonts/foundation-icons/foundation-icons.woff") format("woff"),
+         url("./fonts/foundation-icons/foundation-icons.ttf") format("truetype"),
+         url("./fonts/foundation-icons/foundation-icons.svg#fontcustom") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/******** LIENZO UNO ********/
+
+#contenedor{
+    width: 100%;
+    height: 100vh;
+    /* background-color: #5E4B56; */
+    background-color: var(--color_4);
+    /* background: linear-gradient(0deg, var(--color_1) 0%, var(--color_1) 50%, #5E4B56 50%, #5E4B56 100%); */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 24% 76%;
+    overflow: hidden;
+}
+
+#fondo-mitad{
+    width: 200em;
+    height: 100vh;
+    /* border-radius: 999px; */
+    background-image: url("../img/background-tea.jpg");
+    background-position: 20%;
+    position: relative;
+    right: 1%;
+    bottom: 31.6%;
+    clip-path: circle(30% at 50% 50%);
+}
+
+#cabecera{
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 20vh;
+    font-family: "B612";
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+#nav_one,
+#nav_two{
+    width: 40%;
+}
+
+#nav_one ul,
+#nav_two ul{
+    display: flex;
+    justify-content: space-around;
+    font-size: var(--anchura_texto_2);
+}
+
+#nav_one ul li a,
+#nav_two ul li a{
+    width: 100%;
+    display: block;
+}
+
+#nav_one ul li a{
+    /*a partir de esta línea he de explicar qué se hizo aquí*/
+    color: var(--fondo);
+    background-image: linear-gradient(var(--color_3), var(--color_3));
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .2s;
+    /* hasta aquí*/
+}
+
+#nav_one ul li a:hover,
+#nav_one ul li a:focus{
+    background-size: 100% 4px;
+}
+
+#nav_two ul li a{
+    color: var(--color_3);
+    background-image: linear-gradient(var(--fondo), var(--fondo));
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .2s;
+}
+
+/* #nav_two ul li a:hover{
+    border-bottom: 2px solid var(--color_2);
+    margin-bottom: -2px; ESTO ES PARA EVITAR QUE SE MUEVA AL PASAR EL RATÓN
+} */
+
+
+#nav_two ul li a:hover,
+#nav_two ul li a:focus{
+    background-size: 100% 4px;
+}
+
+
+#logo{
+    width: 14%;
+    text-align: center;
+}
+
+#logo a{
+    display: block;
+    width: 100%;
+}
+#logo img{
+    width: 100%;
+}
+
+/* PRESENTACIÓN */
+
+#presentacion{
+    width: 30%;
+    height: auto;
+    position: absolute;
+    top: 30vh;
+    left: 8rem;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    animation-name: show_up;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
+#presentacion h2{
+    text-align: justify;
+    font-family: "Alegreya";
+    font-size: var(--anchura_titulo_1);
+    text-transform: uppercase;
+    color: var(--fondo);
+}
+
+#presentacion a,
+#texto-info a,
+.info-text a{
+    width: 30%;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    font-family: "Alegreya";
+    text-transform: uppercase;
+    font-size: 1.2vw;
+    color:var(--color_5);
+}
+
+
+#presentacion a:hover{
+    background-color: var(--color_3);
+    transition: all 500ms;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+}
+
+@keyframes show_up {
+    0%{
+        top: 40vh;
+        left: 8rem;
+        opacity: 0;
+    }
+    100%{
+        top: 30vh;
+        left: 8rem;
+        opacity: 1;
+    }
+}
+
+/* LIENZO 2 */
+
+#contenedor_2{
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 100%;
+}
+
+#shop{
+    width: 100%;
+    grid-column: 1 / 2;
+}
+
+#info-shop{
+    width: 100%;
+    grid-column: 2 / 3;
+}
+
+.combination{
+    display: grid;
+    height: 80vh;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.photos{
+    width: 60%;
+}
+
+.photos img{
+    width: 100%;
+}
+
+.photos:first-of-type{
+    width: 20%;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    align-self: end;
+}
+
+.photos:nth-of-type(2){ 
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    justify-self: end;
+}
+
+.photos:nth-of-type(3){
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.photos:nth-of-type(4){
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    justify-self: start;
+}
+
+.photos:last-of-type{
+    width: 20%;
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    align-self: start;
+}
+
+#info-shop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--fondo);
+    font-family: "Alegreya";
+    background-color: #619b8a71;
+}
+
+.info-text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.4rem;
+}
+
+.info-text h2{
+    font-size: 3.4vw;
+}
+
+.info-text i,
+.info-text p{
+    font-size: 1.4vw;
+}
+
+/* LIENZO 3 */
+
+#contenedor_3{
+    width: 100%;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+}
+
+#texto-info{
+    grid-column: 1 / 2;
+    background-color: var(--color_3);
+}
+
+#slide-info{
+    width: 100%;
+    grid-column: 2 / 3;
+    position: relative;
+    overflow: hidden;
+}
+
+#muestra{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 0;
+    display: table;
+    animation: gallery 16s ease-out infinite alternate;
+    -webkit-animation: gallery 16s ease-out infinite alternate;
+}
+
+#muestra:hover{
+    cursor: pointer;
+    animation-play-state: paused;
+}
+
+#muestra img{
+    width: 100%;
+    height: 70vh;
+    opacity: 1;
+}
+
+@keyframes gallery {
+    0%, 20%{ top: 0; opacity: 1;}
+    25% {top: 0;}
+    26% {opacity: 0}
+    27%, 47% {top: -100%; opacity: 1}
+    52% {top: -100%;}
+    53% {opacity: 0;}
+    54%, 74% {top: -200%; opacity: 1;}
+    79% { top: -200%;}
+    80% {opacity: 0;}
+    81%, 100% {top: -300%; opacity: 1;}
+}
+
+#texto-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Alegreya";
+    font-size: var(--anchura_texto_1);
+    color: var(--fondo);
+    animation: show-hide 500ms linear;
+    -webkit-animation: show-hide 500ms linear;
+}
+
+
+#texto-info p{
+    width: 70%;
+    text-align: justify;
+}
+
+#texto-info a{
+    font-size: var(--anchura_texto_2);
+    margin: 2%;
+}
+
+
+#texto-info a:hover,
+.info-text a:hover{
+    background-color: var(--fondo);
+    transition: all 300ms;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+}
+
+@keyframes show-hide {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/* LIENZO 4 */
+
+#contenedor_4{
+    width: 100%;
+    height: 40vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%;
+    background-color: var(--fondo);
+}
+
+#pie-1{
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu{
+    width: 14%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#menu li{
+    width: 100%;
+    font-family: "B612";
+    font-weight: 700;
+    font-size: 1.2vw;
+    text-transform: uppercase;
+    align-self: center;
+}
+
+#menu li a,
+.interes li a{
+    color: var(--color_4);
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+#mapa{
+    width: 20%;
+    margin-top: 1.6%;
+}
+
+#otros{
+    width: 14%;
+    display: flex;
+    flex-direction: column;
+    font-family: "B612";
+    font-size: 1vw;
+    justify-content: space-evenly;
+}
+
+#form{
+    display: flex;
+    justify-content: space-between;
+}
+
+#form input{
+    height: 2rem;
+    padding: 4%;
+    border-radius: 99px;
+    -webkit-border-radius: 99px;
+    -moz-border-radius: 99px;
+    -ms-border-radius: 99px;
+    -o-border-radius: 99px;
+}
+
+button{
+    cursor: pointer;
+    border-radius: 99px;
+    -webkit-border-radius: 99px;
+    -moz-border-radius: 99px;
+    -ms-border-radius: 99px;
+    -o-border-radius: 99px;
+    border-style: none;
+    background-color: var(--color_3);
+    color:white;
+    padding: 3%;
+    font-family: "B612";
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+#form input[type="text"]:focus{
+    color:var(--fondo);
+    outline: none;
+}
+
+#pie{
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fondo);
+    color: var(--color_4);
+    font-family: "B612";
+    font-size: 1vw;
+}
